@@ -6,6 +6,8 @@ Purebred Registration provides the key sharing interface as an easier alternativ
 
 When the user uses the Purebred Registration app interface, the PKCS12 password is passed to your app via the pasteboard. When the user selects a file from their iCloud account, the user will need to be prompted to enter a password. In either case, the PKCS12 file and password are processed in the `importP12` method of the `ViewController` class. To enable the Purebred Registration interface tap Import Key then tap Locations. This will display a list of providers including More. Tap More. If the Purebred Registration app is installed, it will be listed on the Manage Storage Providers view. Turn the switch on for the Purebred Key Chain row then tap Done. Now when Import Key and Locations are tapped, the Purebred Key Chain option will be available.
 
+Details on obtaining and testing the Purebred Registration app will be posted soon. See http://iase.disa.mil/pki-pke/Pages/mobile.aspx.
+
 ViewController.h/ViewController.m
 ------
 Main view controller that enables the user to import a key into Key Share Consumer's key chain or to clear the contents of Key Share Consumer's key chain. Code related to key sharing interface is in the import button click handler and the `UIDocumentPickerDelegate` implementation. Implements `UITableViewDelegate` and `UITableViewDataSource` to display items from the key chain, as served by an instance of `KeyChainDataSource`.
