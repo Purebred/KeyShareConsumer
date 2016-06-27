@@ -47,8 +47,43 @@
     [pasteboard setString:@""];
     passwordFromUser = @"";
     
+    NSUserDefaults* standardDefaults = [NSUserDefaults standardUserDefaults];
+    [standardDefaults synchronize];
+    
+    NSMutableArray* utis = [[NSMutableArray alloc]init];
+    
+    if([standardDefaults boolForKey:@"toggle_com_rsa_pkcs12"])
+        [utis addObject:@"com.rsa.pkcs-12"];
+    if([standardDefaults boolForKey:@"toggle_purebred_select_all"])
+        [utis addObject:@"purebred.select.all"];
+    if([standardDefaults boolForKey:@"toggle_purebred_select_all_user"])
+        [utis addObject:@"purebred.select.all_user"];
+    if([standardDefaults boolForKey:@"toggle_purebred_select_signature"])
+        [utis addObject:@"purebred.select.signature"];
+    if([standardDefaults boolForKey:@"toggle_purebred_select_encryption"])
+        [utis addObject:@"purebred.select.encryption"];
+    if([standardDefaults boolForKey:@"toggle_purebred_select_authentication"])
+        [utis addObject:@"purebred.select.authentication"];
+    if([standardDefaults boolForKey:@"toggle_purebred_select_device"])
+        [utis addObject:@"purebred.select.device"];
+    if([standardDefaults boolForKey:@"toggle_purebred_zip_all"])
+        [utis addObject:@"purebred.zip.all"];
+    if([standardDefaults boolForKey:@"toggle_purebred_zip_all_user"])
+        [utis addObject:@"purebred.zip.all_user"];
+    if([standardDefaults boolForKey:@"toggle_purebred_zip_signature"])
+        [utis addObject:@"purebred.zip.signature"];
+    if([standardDefaults boolForKey:@"toggle_purebred_zip_encryption"])
+        [utis addObject:@"purebred.zip.encryption"];
+    if([standardDefaults boolForKey:@"toggle_purebred_zip_authentication"])
+        [utis addObject:@"purebred.zip.authentication"];
+    if([standardDefaults boolForKey:@"toggle_purebred_zip_device"])
+        [utis addObject:@"purebred.zip.device"];
+    
+    if(0 == [utis count])
+        [utis addObject:@"com.rsa.pkcs-12"];
+    
     //Display the UIDocumentPickerViewController to enable the user to select a key to import. Purebred Registration only works with UIDocumentPickerModeOpen mode.
-    UIDocumentPickerViewController *documentPicker = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:@[@"com.rsa.pkcs-12"] inMode:UIDocumentPickerModeOpen];
+    UIDocumentPickerViewController *documentPicker = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:utis inMode:UIDocumentPickerModeOpen];
     documentPicker.delegate = self;
     documentPicker.modalPresentationStyle = UIModalPresentationFormSheet;
     [self presentViewController:documentPicker animated:YES completion:nil];

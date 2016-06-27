@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5540EDF91D0F2D3A002A585C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5540EDF81D0F2D3A002A585C /* Settings.bundle */; };
 		556911551BED585D00F670C3 /* KeyChainDataSource.mm in Sources */ = {isa = PBXBuildFile; fileRef = 556911521BED585D00F670C3 /* KeyChainDataSource.mm */; };
 		556911561BED585D00F670C3 /* KeyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 556911541BED585D00F670C3 /* KeyDetailViewController.m */; };
 		55FE83131B6BB72B0072DCCD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FE83121B6BB72B0072DCCD /* main.m */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		55016C501B6F99BB00CFBF56 /* KeyShareConsumer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = KeyShareConsumer.entitlements; sourceTree = "<group>"; };
+		5540EDF81D0F2D3A002A585C /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		556911511BED585D00F670C3 /* KeyChainDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyChainDataSource.h; sourceTree = "<group>"; };
 		556911521BED585D00F670C3 /* KeyChainDataSource.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KeyChainDataSource.mm; sourceTree = "<group>"; };
 		556911531BED585D00F670C3 /* KeyDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyDetailViewController.h; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 		55FE830F1B6BB72B0072DCCD /* KeyShareConsumer */ = {
 			isa = PBXGroup;
 			children = (
+				5540EDF81D0F2D3A002A585C /* Settings.bundle */,
 				556911511BED585D00F670C3 /* KeyChainDataSource.h */,
 				556911521BED585D00F670C3 /* KeyChainDataSource.mm */,
 				556911531BED585D00F670C3 /* KeyDetailViewController.h */,
@@ -217,6 +220,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5540EDF91D0F2D3A002A585C /* Settings.bundle in Resources */,
 				55FE831C1B6BB72B0072DCCD /* Main.storyboard in Resources */,
 				55FE83211B6BB72B0072DCCD /* LaunchScreen.xib in Resources */,
 				55FE831E1B6BB72B0072DCCD /* Images.xcassets in Resources */,
@@ -384,8 +388,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = KeyShareConsumer/KeyShareConsumer.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				INFOPLIST_FILE = KeyShareConsumer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
