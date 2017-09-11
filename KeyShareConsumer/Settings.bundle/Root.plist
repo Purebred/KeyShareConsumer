@@ -82,6 +82,86 @@
 			<key>DefaultValue</key>
 			<true/>
 		</dict>
+        <dict>
+            <key>Type</key>
+            <string>PSToggleSwitchSpecifier</string>
+            <key>Title</key>
+            <string>All device keys (purebred.zip.all)</string>
+            <key>Key</key>
+            <string>toggle_purebred_zip_all</string>
+            <key>DefaultValue</key>
+            <false/>
+        </dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>All user keys (purebred.zip.all.user)</string>
+			<key>Key</key>
+			<string>toggle_purebred_zip_all_user</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Signature keys (purebred.zip.signature)</string>
+			<key>Key</key>
+			<string>toggle_purebred_zip_signature</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>All encryption keys (purebred.zip.encryption)</string>
+			<key>Key</key>
+			<string>toggle_purebred_zip_encryption</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>All authentication keys (purebred.zip.authentication)</string>
+			<key>Key</key>
+			<string>toggle_purebred_zip_authentication</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>All device keys (purebred.zip.device)</string>
+			<key>Key</key>
+			<string>toggle_purebred_zip_device</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+        <dict>
+            <key>Type</key>
+            <string>PSToggleSwitchSpecifier</string>
+            <key>Title</key>
+            <string>Do not filter on notBefore for zip files (purebred.zip.no_filter)</string>
+            <key>Key</key>
+            <string>toggle_purebred_zip_no_filter</string>
+            <key>DefaultValue</key>
+            <false/>
+        </dict>
+        <dict>
+            <key>Type</key>
+            <string>PSToggleSwitchSpecifier</string>
+            <key>Title</key>
+            <string>Do not filter on notBefore (purebred.select.no_filter)</string>
+            <key>Key</key>
+            <string>toggle_purebred_select_no_filter</string>
+            <key>DefaultValue</key>
+            <false/>
+        </dict>
 	</array>
 </dict>
 </plist>

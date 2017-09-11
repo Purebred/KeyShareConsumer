@@ -7,6 +7,10 @@
 #import "KeyDetailViewController.h"
 #import <CommonCrypto/CommonDigest.h>
 
+#import "ZipFile.h"
+#import "FileInZipInfo.h"
+#import "ZipReadStream.h"
+
 @interface ViewController ()<UIDocumentPickerDelegate>
 @end
 
@@ -66,6 +70,8 @@
         [utis addObject:@"purebred.select.authentication"];
     if([standardDefaults boolForKey:@"toggle_purebred_select_device"])
         [utis addObject:@"purebred.select.device"];
+    if([standardDefaults boolForKey:@"toggle_purebred_select_no_filter"])
+        [utis addObject:@"purebred.select.no_filter"];
     if([standardDefaults boolForKey:@"toggle_purebred_zip_all"])
         [utis addObject:@"purebred.zip.all"];
     if([standardDefaults boolForKey:@"toggle_purebred_zip_all_user"])
@@ -78,6 +84,8 @@
         [utis addObject:@"purebred.zip.authentication"];
     if([standardDefaults boolForKey:@"toggle_purebred_zip_device"])
         [utis addObject:@"purebred.zip.device"];
+    if([standardDefaults boolForKey:@"toggle_purebred_zip_no_filter"])
+        [utis addObject:@"purebred.zip.no_filter"];
     
     if(0 == [utis count])
         [utis addObject:@"com.rsa.pkcs-12"];
@@ -142,6 +150,18 @@
             [alert show];
         }
         else{
+            /*
+            NSString* p12File = @"tmp.p12";
+            
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            NSString *documentsDirectory = [paths objectAtIndex:0];
+            NSString *p12Path = [documentsDirectory stringByAppendingPathComponent:p12File];
+            
+            NSLog(@"Password: %@", passwordFromUser);
+            //Write the private key and certificate to a pair of files
+            [pkcs12Data writeToFile:p12Path atomically:YES];
+            */
+            
             [self importP12:pkcs12Data password:passwordFromUser];
         }
     }
@@ -473,16 +493,53 @@
     }
     else
     {
-        NSString *alertMessage = [NSString stringWithFormat:@"Failed to parse or decrypt PKCS #12 file with error code %d", (int)securityError];
-        NSLog(@"%@", alertMessage);
-        dispatch_async(dispatch_get_main_queue(), ^{
-            UIAlertController *alertController = [UIAlertController
-                                                  alertControllerWithTitle:@"Import Error"
-                                                  message:alertMessage
-                                                  preferredStyle:UIAlertControllerStyleAlert];
-            [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
-            [self presentViewController:alertController animated:YES completion:nil];
-        });
+        //Get the destination folder for the files
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        
+        //Generate a file name using the sha1 hash of the certificate with .p8 extension for private key and .der for certificate
+        NSString* zipFile = @"tmp.zip";
+        NSString *zipPath = [documentsDirectory stringByAppendingPathComponent:zipFile];
+       
+        [pkcs12DataToImport writeToFile:zipPath atomically:YES];
+        
+        ZipFile *unzipFile= [[ZipFile alloc] initWithFileName:zipPath mode:ZipFileModeUnzip];
+        if(NULL != unzipFile)
+        {
+            NSArray *infos= [unzipFile listFileInZipInfos];
+            [unzipFile goToFirstFileInZip];
+            
+            for (FileInZipInfo *info in infos)
+            {
+                ZipReadStream *read1= [unzipFile readCurrentFileInZip];
+                
+                NSData *data= [read1 readDataOfLength:info.length];
+               
+                if(data)
+                {
+                    [self importP12:data password:password];
+                }
+                    
+                
+                [read1 finishedReading];
+                [unzipFile goToNextFileInZip];
+            }
+            
+            [unzipFile close];
+            [[NSFileManager defaultManager] removeItemAtPath:zipPath error:nil];
+        }
+        else{
+            NSString *alertMessage = [NSString stringWithFormat:@"Failed to parse or decrypt PKCS #12 file with error code %d", (int)securityError];
+            NSLog(@"%@", alertMessage);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIAlertController *alertController = [UIAlertController
+                                                      alertControllerWithTitle:@"Import Error"
+                                                      message:alertMessage
+                                                      preferredStyle:UIAlertControllerStyleAlert];
+                [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
+                [self presentViewController:alertController animated:YES completion:nil];
+            });
+        }
     }
 }
 

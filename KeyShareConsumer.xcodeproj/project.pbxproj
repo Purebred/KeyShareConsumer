@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		5540EDF91D0F2D3A002A585C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5540EDF81D0F2D3A002A585C /* Settings.bundle */; };
+		5546A29F1ECB87B800C5050E /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 5546A28C1ECB87B800C5050E /* ioapi.c */; };
+		5546A2A01ECB87B800C5050E /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 5546A28E1ECB87B800C5050E /* mztools.c */; };
+		5546A2A11ECB87B800C5050E /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 5546A2901ECB87B800C5050E /* unzip.c */; };
+		5546A2A21ECB87B800C5050E /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 5546A2921ECB87B800C5050E /* zip.c */; };
+		5546A2A31ECB87B800C5050E /* FileInZipInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5546A2961ECB87B800C5050E /* FileInZipInfo.m */; };
+		5546A2A41ECB87B800C5050E /* ZipException.m in Sources */ = {isa = PBXBuildFile; fileRef = 5546A2981ECB87B800C5050E /* ZipException.m */; };
+		5546A2A51ECB87B800C5050E /* ZipFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5546A29A1ECB87B800C5050E /* ZipFile.m */; };
+		5546A2A61ECB87B800C5050E /* ZipReadStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 5546A29C1ECB87B800C5050E /* ZipReadStream.m */; };
+		5546A2A71ECB87B800C5050E /* ZipWriteStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 5546A29E1ECB87B800C5050E /* ZipWriteStream.m */; };
+		5546A2AA1ECB87E300C5050E /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5546A2A91ECB87E300C5050E /* libz.tbd */; };
 		556911551BED585D00F670C3 /* KeyChainDataSource.mm in Sources */ = {isa = PBXBuildFile; fileRef = 556911521BED585D00F670C3 /* KeyChainDataSource.mm */; };
 		556911561BED585D00F670C3 /* KeyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 556911541BED585D00F670C3 /* KeyDetailViewController.m */; };
 		55FE83131B6BB72B0072DCCD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FE83121B6BB72B0072DCCD /* main.m */; };
@@ -32,6 +42,25 @@
 /* Begin PBXFileReference section */
 		55016C501B6F99BB00CFBF56 /* KeyShareConsumer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = KeyShareConsumer.entitlements; sourceTree = "<group>"; };
 		5540EDF81D0F2D3A002A585C /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		5546A28C1ECB87B800C5050E /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
+		5546A28D1ECB87B800C5050E /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
+		5546A28E1ECB87B800C5050E /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
+		5546A28F1ECB87B800C5050E /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
+		5546A2901ECB87B800C5050E /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
+		5546A2911ECB87B800C5050E /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
+		5546A2921ECB87B800C5050E /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
+		5546A2931ECB87B800C5050E /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
+		5546A2951ECB87B800C5050E /* FileInZipInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileInZipInfo.h; sourceTree = "<group>"; };
+		5546A2961ECB87B800C5050E /* FileInZipInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileInZipInfo.m; sourceTree = "<group>"; };
+		5546A2971ECB87B800C5050E /* ZipException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipException.h; sourceTree = "<group>"; };
+		5546A2981ECB87B800C5050E /* ZipException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZipException.m; sourceTree = "<group>"; };
+		5546A2991ECB87B800C5050E /* ZipFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipFile.h; sourceTree = "<group>"; };
+		5546A29A1ECB87B800C5050E /* ZipFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZipFile.m; sourceTree = "<group>"; };
+		5546A29B1ECB87B800C5050E /* ZipReadStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipReadStream.h; sourceTree = "<group>"; };
+		5546A29C1ECB87B800C5050E /* ZipReadStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZipReadStream.m; sourceTree = "<group>"; };
+		5546A29D1ECB87B800C5050E /* ZipWriteStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipWriteStream.h; sourceTree = "<group>"; };
+		5546A29E1ECB87B800C5050E /* ZipWriteStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZipWriteStream.m; sourceTree = "<group>"; };
+		5546A2A91ECB87E300C5050E /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		556911511BED585D00F670C3 /* KeyChainDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyChainDataSource.h; sourceTree = "<group>"; };
 		556911521BED585D00F670C3 /* KeyChainDataSource.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KeyChainDataSource.mm; sourceTree = "<group>"; };
 		556911531BED585D00F670C3 /* KeyDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyDetailViewController.h; sourceTree = "<group>"; };
@@ -56,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5546A2AA1ECB87E300C5050E /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,12 +99,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5546A28B1ECB87B800C5050E /* MiniZip */ = {
+			isa = PBXGroup;
+			children = (
+				5546A28C1ECB87B800C5050E /* ioapi.c */,
+				5546A28D1ECB87B800C5050E /* ioapi.h */,
+				5546A28E1ECB87B800C5050E /* mztools.c */,
+				5546A28F1ECB87B800C5050E /* mztools.h */,
+				5546A2901ECB87B800C5050E /* unzip.c */,
+				5546A2911ECB87B800C5050E /* unzip.h */,
+				5546A2921ECB87B800C5050E /* zip.c */,
+				5546A2931ECB87B800C5050E /* zip.h */,
+			);
+			path = MiniZip;
+			sourceTree = "<group>";
+		};
+		5546A2941ECB87B800C5050E /* Objective-Zip */ = {
+			isa = PBXGroup;
+			children = (
+				5546A2951ECB87B800C5050E /* FileInZipInfo.h */,
+				5546A2961ECB87B800C5050E /* FileInZipInfo.m */,
+				5546A2971ECB87B800C5050E /* ZipException.h */,
+				5546A2981ECB87B800C5050E /* ZipException.m */,
+				5546A2991ECB87B800C5050E /* ZipFile.h */,
+				5546A29A1ECB87B800C5050E /* ZipFile.m */,
+				5546A29B1ECB87B800C5050E /* ZipReadStream.h */,
+				5546A29C1ECB87B800C5050E /* ZipReadStream.m */,
+				5546A29D1ECB87B800C5050E /* ZipWriteStream.h */,
+				5546A29E1ECB87B800C5050E /* ZipWriteStream.m */,
+			);
+			path = "Objective-Zip";
+			sourceTree = "<group>";
+		};
+		5546A2A81ECB87E300C5050E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5546A2A91ECB87E300C5050E /* libz.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		55FE83041B6BB72B0072DCCD = {
 			isa = PBXGroup;
 			children = (
 				55FE830F1B6BB72B0072DCCD /* KeyShareConsumer */,
 				55FE83291B6BB72B0072DCCD /* KeyShareConsumerTests */,
 				55FE830E1B6BB72B0072DCCD /* Products */,
+				5546A2A81ECB87E300C5050E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,6 +161,8 @@
 		55FE830F1B6BB72B0072DCCD /* KeyShareConsumer */ = {
 			isa = PBXGroup;
 			children = (
+				5546A28B1ECB87B800C5050E /* MiniZip */,
+				5546A2941ECB87B800C5050E /* Objective-Zip */,
 				5540EDF81D0F2D3A002A585C /* Settings.bundle */,
 				556911511BED585D00F670C3 /* KeyChainDataSource.h */,
 				556911521BED585D00F670C3 /* KeyChainDataSource.mm */,
@@ -192,6 +265,7 @@
 					};
 					55FE83251B6BB72B0072DCCD = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 2FBELHR72N;
 						TestTargetID = 55FE830C1B6BB72B0072DCCD;
 					};
 				};
@@ -241,11 +315,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5546A29F1ECB87B800C5050E /* ioapi.c in Sources */,
+				5546A2A71ECB87B800C5050E /* ZipWriteStream.m in Sources */,
 				55FE83191B6BB72B0072DCCD /* ViewController.m in Sources */,
+				5546A2A41ECB87B800C5050E /* ZipException.m in Sources */,
+				5546A2A31ECB87B800C5050E /* FileInZipInfo.m in Sources */,
 				55FE83161B6BB72B0072DCCD /* AppDelegate.m in Sources */,
+				5546A2A21ECB87B800C5050E /* zip.c in Sources */,
 				556911551BED585D00F670C3 /* KeyChainDataSource.mm in Sources */,
+				5546A2A01ECB87B800C5050E /* mztools.c in Sources */,
 				55FE83131B6BB72B0072DCCD /* main.m in Sources */,
+				5546A2A61ECB87B800C5050E /* ZipReadStream.m in Sources */,
+				5546A2A11ECB87B800C5050E /* unzip.c in Sources */,
 				556911561BED585D00F670C3 /* KeyDetailViewController.m in Sources */,
+				5546A2A51ECB87B800C5050E /* ZipFile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,13 +456,14 @@
 				CODE_SIGN_ENTITLEMENTS = KeyShareConsumer/KeyShareConsumer.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 2FBELHR72N;
 				INFOPLIST_FILE = KeyShareConsumer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = red.hound.enterprise.KeyShareConsumer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				VALID_ARCHS = armv7;
+				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Debug;
 		};
@@ -388,15 +472,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = KeyShareConsumer/KeyShareConsumer.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 2FBELHR72N;
 				INFOPLIST_FILE = KeyShareConsumer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = red.hound.enterprise.KeyShareConsumer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				VALID_ARCHS = armv7;
+				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Release;
 		};
@@ -404,6 +489,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 2FBELHR72N;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -414,9 +500,11 @@
 				);
 				INFOPLIST_FILE = KeyShareConsumerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "red.hound.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeyShareConsumer.app/KeyShareConsumer";
+				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Debug;
 		};
@@ -424,6 +512,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 2FBELHR72N;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -433,6 +522,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "red.hound.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeyShareConsumer.app/KeyShareConsumer";
+				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Release;
 		};
