@@ -15,6 +15,16 @@ The list of keys displayed by a provider can be filtered using a uniform type id
 * purebred.select.signature
 * purebred.select.encryption
 * purebred.select.authentication
+* purebred.select.no_filter
+* purebred.zip.all
+* purebred.zip.all_user
+* purebred.zip.device
+* purebred.zip.signature
+* purebred.zip.encryption
+* purebred.zip.authentication
+* purebred.zip.no_filter
+
+By default, the Purebred Registration app serves up the most recent keys for the indicated types. The no_filter option can be used to cause all available keys for the indicated types to be displayed. 
 
 Details on obtaining and testing the Purebred Registration app will be posted soon. See [here](http://iase.disa.mil/pki-pke/Pages/mobile.aspx).
 
