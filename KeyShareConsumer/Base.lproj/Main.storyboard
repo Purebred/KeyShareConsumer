@@ -1,9 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,40 +19,40 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="s2F-x5-Lv6">
-                                <rect key="frame" x="18" y="58" width="565" height="514"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="14" y="58" width="347" height="581"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="2eX-Ud-Pqn"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="uB2-Oo-O5Z"/>
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fCA-uB-nbn">
-                                <rect key="frame" x="24" y="20" width="79" height="30"/>
+                                <rect key="frame" x="20" y="20" width="79" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="79" id="gZp-zo-dTl"/>
                                 </constraints>
                                 <state key="normal" title="Import Key">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="openImportDocumentPicker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QQR-Nf-Rse"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hhu-eU-kQH">
-                                <rect key="frame" x="474" y="20" width="109" height="30"/>
+                                <rect key="frame" x="252" y="20" width="109" height="30"/>
                                 <state key="normal" title="Clear Key Chain">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="clearKeyChain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N2N-e8-aR3"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="s2F-x5-Lv6" firstAttribute="trailing" secondItem="hhu-eU-kQH" secondAttribute="trailing" id="22Z-D9-3i3"/>
                             <constraint firstItem="hhu-eU-kQH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="77c-ha-usL"/>
@@ -77,33 +81,33 @@
                         <viewControllerLayoutGuide type="bottom" id="KRv-fS-9nN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yJG-ne-GCa">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MVJ-kB-iVc">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="554"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="621"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="ROo-yP-Nl0" id="0gL-Yx-4WO"/>
                                     <outlet property="delegate" destination="ROo-yP-Nl0" id="IDS-Ai-faG"/>
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUh-Kt-IDD">
-                                <rect key="frame" x="446" y="562" width="132" height="30"/>
+                                <rect key="frame" x="225" y="629" width="132" height="30"/>
                                 <state key="normal" title="Return to key chain"/>
                                 <connections>
                                     <action selector="OnCancel:" destination="ROo-yP-Nl0" eventType="touchUpInside" id="ve0-8n-lsg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwP-w2-YUr">
-                                <rect key="frame" x="26" y="562" width="121" height="30"/>
+                                <rect key="frame" x="22" y="629" width="121" height="30"/>
                                 <state key="normal" title="Share with iTunes"/>
                                 <connections>
                                     <action selector="OnShareWithiTunes:" destination="ROo-yP-Nl0" eventType="touchUpInside" id="VL0-ke-bZB"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="pUh-Kt-IDD" firstAttribute="baseline" secondItem="cwP-w2-YUr" secondAttribute="baseline" id="7CR-ST-vom"/>
                             <constraint firstItem="MVJ-kB-iVc" firstAttribute="top" secondItem="yJG-ne-GCa" secondAttribute="top" id="AhY-oG-Faa"/>

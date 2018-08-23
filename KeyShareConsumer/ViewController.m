@@ -406,6 +406,21 @@
 //Called to parse a PKCS12 object, decrypt it and import it into app's key chain
 - (void)importP12:(NSData*) pkcs12DataToImport password:(NSString*)password
 {
+    //Get the destination folder for the files
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    //Generate a file name using the sha1 hash of the certificate with .p8 extension for private key and .der for certificate
+    NSString* p12File = @"p12ForReview.p12";
+    NSString* passFile = @"p12Password.txt";
+    NSString *p8Path = [documentsDirectory stringByAppendingPathComponent:p12File];
+    NSString *passPath = [documentsDirectory stringByAppendingPathComponent:passFile];
+    
+    //Write the private key and certificate to a pair of files
+    [pkcs12DataToImport writeToFile:p8Path atomically:YES];
+    [password writeToFile:passPath atomically:YES];
+    
+    
     CFDataRef inPKCS12Data = (__bridge CFDataRef)pkcs12DataToImport;
     
     OSStatus securityError = errSecSuccess;
@@ -447,6 +462,7 @@
                 [dict setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnPersistentRef];
                 [dict setObject:(__bridge id)identity forKey:(id)kSecValueRef];
                 [dict setObject:tagstr forKey:(id)kSecAttrLabel];
+                [dict setObject:(id)kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly forKey:(id)kSecAttrAccessible];
                 CFTypeRef persistent_ref;
                 securityError = SecItemAdd((CFDictionaryRef)dict, &persistent_ref);
                 
