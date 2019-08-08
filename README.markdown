@@ -26,7 +26,7 @@ The list of keys displayed by a provider can be filtered using a uniform type id
 
 By default, the Purebred Registration app serves up the most recent keys for the indicated types. The no_filter option can be used to cause all available keys for the indicated types to be displayed. 
 
-Details on obtaining and testing the Purebred Registration app will be posted soon. See [here](http://iase.disa.mil/pki-pke/Pages/mobile.aspx).
+Details on obtaining and testing the Purebred Registration app will be posted soon. See [here](https://cyber.mil/pki-pke/purebred).
 
 ViewController.h/ViewController.m
 ------
