@@ -47,9 +47,9 @@
 - (IBAction)openImportDocumentPicker:(id)sender
 {
     //Clear the pasteboard, since a password may be provided via that mechanism
-    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-    [pasteboard setString:@""];
-    passwordFromUser = @"";
+    //UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    //[pasteboard setString:@""];
+    //passwordFromUser = @"";
     
     NSUserDefaults* standardDefaults = [NSUserDefaults standardUserDefaults];
     [standardDefaults synchronize];
@@ -112,7 +112,8 @@
     NSLog(@"Cancelled");
 }
 
-- (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentAtURL:(NSURL *)url {
+- (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentsAtURLs:(NSArray<NSURL *>*)urls {
+    NSURL* url = urls[0];
     if(controller.documentPickerMode == UIDocumentPickerModeOpen)
     {
         BOOL startAccessingWorked = [url startAccessingSecurityScopedResource];
