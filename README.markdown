@@ -1,3 +1,5 @@
+The key sharing interface has changed to accommodate iOS13/iPadOS13. Details are [here](https://github.com/Purebred/KeyShareConsumer/blob/master/iOS13Notes.md).
+
 The KeyShareConsumer app is intended to illustrate usage of the document provider interface exposed by the Purebred Registration app. This interface can be used to import cryptographic keys provisioned using the Purebred Registration app, the SampleKeyProvider app or PKCS12 files stored in the user's iCloud account. 
 
 Document provider extensions were introduced in iOS 8 and are described [here](https://developer.apple.com/library/ios/documentation/General/Conceptual/ExtensibilityPG/FileProvider.html). As additional background, a sample document provider was presented during the WWDC 2014 conference. Source code is available [here](https://github.com/master-nevi/WWDC-2014/tree/master/NewBox%20An%20Introduction%20to%20iCloud%20Document%20enhancements%20in%20iOS%208.0).
