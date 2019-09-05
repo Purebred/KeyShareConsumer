@@ -1,3 +1,5 @@
+Note, iOS13.1 beta 2 appears to have resolved the issue with the mechanism underpinning the key sharing interface in Purebred v1.5 (2) and below. Thus, the changes described below may not be adopted. 
+
 # Purebred's Key Sharing interface
 
 The Purebred Registration app is used to provision derived credentials and recovered encryption credentials to iOS, Android, selected Windows 10 and Yubikey devices. On all except iOS, keys are provisioned such that third party and system applications can use the keys via system-provided APIs. On iOS, keys are provisioned such that keys can be exported from the Purebred app into system or third party applications.  
