@@ -1,4 +1,4 @@
-The key sharing interface has changed to accommodate iOS13/iPadOS13. Details are [here](https://github.com/Purebred/KeyShareConsumer/blob/master/iOS13Notes.md).
+The key sharing interface has changed to accommodate iOS13/iPadOS13. Details are [here](https://github.com/Purebred/KeyShareConsumer/blob/master/iOS13Notes.md). Note, iOS13.1 beta 2 appears to have resolved the issue with the mechanism underpinning the key sharing interface in Purebred v1.5 (2) and below. 
 
 The KeyShareConsumer app is intended to illustrate usage of the document provider interface exposed by the Purebred Registration app. This interface can be used to import cryptographic keys provisioned using the Purebred Registration app, the SampleKeyProvider app or PKCS12 files stored in the user's iCloud account. 
 
