@@ -46,6 +46,16 @@
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
+			<string>All user keys (purebred.select.all-user)</string>
+			<key>Key</key>
+			<string>toggle_purebred_select_all-user</string>
+			<key>DefaultValue</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
 			<string>Signature keys (purebred.select.signature)</string>
 			<key>Key</key>
 			<string>toggle_purebred_select_signature</string>
@@ -106,6 +116,16 @@
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
+			<string>All user keys (purebred.zip.all-user)</string>
+			<key>Key</key>
+			<string>toggle_purebred_zip_all-user</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
 			<string>Signature keys (purebred.zip.signature)</string>
 			<key>Key</key>
 			<string>toggle_purebred_zip_signature</string>
@@ -159,6 +179,26 @@
             <string>Do not filter on notBefore (purebred.select.no_filter)</string>
             <key>Key</key>
             <string>toggle_purebred_select_no_filter</string>
+            <key>DefaultValue</key>
+            <false/>
+        </dict>
+        <dict>
+            <key>Type</key>
+            <string>PSToggleSwitchSpecifier</string>
+            <key>Title</key>
+            <string>Do not filter on notBefore for zip files (purebred.zip.no-filter)</string>
+            <key>Key</key>
+            <string>toggle_purebred_zip_no-filter</string>
+            <key>DefaultValue</key>
+            <false/>
+        </dict>
+        <dict>
+            <key>Type</key>
+            <string>PSToggleSwitchSpecifier</string>
+            <key>Title</key>
+            <string>Do not filter on notBefore (purebred.select.no-filter)</string>
+            <key>Key</key>
+            <string>toggle_purebred_select_no-filter</string>
             <key>DefaultValue</key>
             <false/>
         </dict>

@@ -67,7 +67,7 @@ enum KeyChainDataSourceMode
 - (NSString*) GetIdentityNameAtIndex:(long)index;
 - (NSString*) GetEmailAddressAtIndex:(long)index;
 - (void) removeObjectAtIndex:(long)index;
-- (int) numItems;
+- (size_t) numItems;
 - (SecIdentityRef) GetIdentityAtIndex:(long)index;
 - (NSData*) GetPKCS12AtIndex:(long)index;
 - (NSData*) GetPrivateKeyAtIndex:(long)index;

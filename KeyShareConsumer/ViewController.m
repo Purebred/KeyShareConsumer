@@ -62,6 +62,8 @@
         [utis addObject:@"purebred.select.all"];
     if([standardDefaults boolForKey:@"toggle_purebred_select_all_user"])
         [utis addObject:@"purebred.select.all_user"];
+    if([standardDefaults boolForKey:@"toggle_purebred_select_all-user"])
+        [utis addObject:@"purebred.select.all-user"];
     if([standardDefaults boolForKey:@"toggle_purebred_select_signature"])
         [utis addObject:@"purebred.select.signature"];
     if([standardDefaults boolForKey:@"toggle_purebred_select_encryption"])
@@ -72,10 +74,18 @@
         [utis addObject:@"purebred.select.device"];
     if([standardDefaults boolForKey:@"toggle_purebred_select_no_filter"])
         [utis addObject:@"purebred.select.no_filter"];
+    if([standardDefaults boolForKey:@"toggle_purebred_select_no-filter"])
+        [utis addObject:@"purebred.select.no-filter"];
+    if([standardDefaults boolForKey:@"toggle_purebred_select_no-filter"])
+        [utis addObject:@"purebred.select.no-filter"];
+    if([standardDefaults boolForKey:@"toggle_purebred_select_no-filter"])
+        [utis addObject:@"purebred.select.no-filter"];
     if([standardDefaults boolForKey:@"toggle_purebred_zip_all"])
         [utis addObject:@"purebred.zip.all"];
     if([standardDefaults boolForKey:@"toggle_purebred_zip_all_user"])
         [utis addObject:@"purebred.zip.all_user"];
+    if([standardDefaults boolForKey:@"toggle_purebred_zip_all-user"])
+        [utis addObject:@"purebred.zip.all-user"];
     if([standardDefaults boolForKey:@"toggle_purebred_zip_signature"])
         [utis addObject:@"purebred.zip.signature"];
     if([standardDefaults boolForKey:@"toggle_purebred_zip_encryption"])
@@ -86,7 +96,9 @@
         [utis addObject:@"purebred.zip.device"];
     if([standardDefaults boolForKey:@"toggle_purebred_zip_no_filter"])
         [utis addObject:@"purebred.zip.no_filter"];
-    
+    if([standardDefaults boolForKey:@"toggle_purebred_zip_no-filter"])
+        [utis addObject:@"purebred.zip.no-filter"];
+
     if(0 == [utis count])
         [utis addObject:@"com.rsa.pkcs-12"];
     
@@ -191,10 +203,22 @@
     NSString *text = [keyChain GetIdentityNameAtIndex:indexPath.row];
     
     CGRect frameRect = [tableView frame];
-    CGSize constraint = CGSizeMake(frameRect.size.width - (CELL_CONTENT_MARGIN * 2), 20000.0f);
+    //CGSize constraint = CGSizeMake(frameRect.size.width - (CELL_CONTENT_MARGIN * 2), 20000.0f);
     
-    CGSize size = [text sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE] constrainedToSize:constraint lineBreakMode:NSLineBreakByCharWrapping];
+    //CGSize size = [text sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE] constrainedToSize:constraint lineBreakMode:NSLineBreakByCharWrapping];
     
+    NSAttributedString *attributedText =
+        [[NSAttributedString alloc]
+            initWithString:text
+            attributes:@
+            {
+                NSFontAttributeName: [UIFont systemFontOfSize:FONT_SIZE]
+            }];
+    CGRect rect = [attributedText boundingRectWithSize:(CGSize){frameRect.size.width, CGFLOAT_MAX}
+                                               options:NSStringDrawingUsesLineFragmentOrigin
+                                               context:nil];
+    CGSize size = rect.size;
+
     CGFloat height = MAX(size.height, 44.0f);
     
     return height + (CELL_CONTENT_MARGIN * 2);
@@ -212,7 +236,7 @@
         
         label = [[UILabel alloc] initWithFrame:CGRectZero] ;
         [label setLineBreakMode:NSLineBreakByCharWrapping];
-        [label setMinimumFontSize:FONT_SIZE];
+        //[label setMinimumFontSize:FONT_SIZE];
         [label setNumberOfLines:0];
         [label setFont:[UIFont systemFontOfSize:FONT_SIZE]];
         [label setTag:1];
@@ -223,10 +247,22 @@
     NSString *text = [keyChain GetIdentityNameAtIndex:indexPath.row];
     
     CGRect frameRect = [tableView frame];
-    CGSize constraint = CGSizeMake(frameRect.size.width - (CELL_CONTENT_MARGIN * 2), 20000.0f);
+    //CGSize constraint = CGSizeMake(frameRect.size.width - (CELL_CONTENT_MARGIN * 2), 20000.0f);
     
-    CGSize size = [text sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE] constrainedToSize:constraint lineBreakMode:NSLineBreakByCharWrapping];
+    //CGSize size = [text sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE] constrainedToSize:constraint lineBreakMode:NSLineBreakByCharWrapping];
     
+    NSAttributedString *attributedText =
+        [[NSAttributedString alloc]
+            initWithString:text
+            attributes:@
+            {
+                NSFontAttributeName: [UIFont systemFontOfSize:FONT_SIZE]
+            }];
+    CGRect rect = [attributedText boundingRectWithSize:(CGSize){frameRect.size.width, CGFLOAT_MAX}
+                                               options:NSStringDrawingUsesLineFragmentOrigin
+                                               context:nil];
+    CGSize size = rect.size;
+
     if (!label)
         label = (UILabel*)[cell viewWithTag:1];
     
@@ -282,7 +318,7 @@
 /**
  Called when "Share with iTunes" button is clicked on the KeyDetailViewController.
  */
-- (void) import:(int)row
+- (void) import:(long)row
 {
     //Read the identity and private key for the indicated item using the KeyChainDataSource instance.
     SecIdentityRef identity = [keyChain GetIdentityAtIndex:row];
@@ -347,7 +383,7 @@
 /**
  Called when "Return to key chain" button is clicked on the KeyDetailViewController.
  */
-- (void) dismissWithoutImporting:(int)row
+- (void) dismissWithoutImporting:(long)row
 {
     [self dismissViewControllerAnimated:NO completion:nil];
     NSIndexPath* indexPath = [[self tableViewKeyChain] indexPathForSelectedRow];
@@ -369,7 +405,7 @@
     NSMutableDictionary* dict = [NSMutableDictionary dictionary];
     [dict setObject:(__bridge id)secClass forKey:(__bridge id)kSecClass];
     OSStatus result = SecItemDelete((__bridge CFDictionaryRef) dict);
-    NSAssert(result == noErr || result == errSecItemNotFound, @"Error deleting keychain data (%ld)", result);
+    NSAssert(result == noErr || result == errSecItemNotFound, @"Error deleting keychain data (%d)", (int)result);
 }
 
 //Called when preparing file names for iTunes file sharing
@@ -377,7 +413,7 @@
 {
     uint8_t digest[CC_SHA1_DIGEST_LENGTH];
     
-    CC_SHA1(data.bytes, data.length, digest);
+    CC_SHA1(data.bytes, (CC_LONG)data.length, digest);
     
     NSMutableString *output = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH * 2];
     
@@ -419,7 +455,7 @@
     
     //Write the private key and certificate to a pair of files
     [pkcs12DataToImport writeToFile:p8Path atomically:YES];
-    [password writeToFile:passPath atomically:YES];
+    [password writeToFile:passPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
     
     
     CFDataRef inPKCS12Data = (__bridge CFDataRef)pkcs12DataToImport;

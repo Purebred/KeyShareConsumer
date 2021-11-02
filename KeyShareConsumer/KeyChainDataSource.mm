@@ -643,7 +643,7 @@ CFTypeRef g_miscRelatedAttrs[] = {
     initialized = false;
 }
 
-- (int) numItems
+- (size_t) numItems
 {
     //each item gets its own section
     if(nil == items)

@@ -1,5 +1,3 @@
-The key sharing interface has changed to accommodate iOS13/iPadOS13. Details are [here](https://github.com/Purebred/KeyShareConsumer/blob/master/iOS13Notes.md). Note, iOS13.1 beta 2 appears to have resolved the issue with the mechanism underpinning the key sharing interface in Purebred v1.5 (2) and below. 
-
 The KeyShareConsumer app is intended to illustrate usage of the document provider interface exposed by the Purebred Registration app. This interface can be used to import cryptographic keys provisioned using the Purebred Registration app, the SampleKeyProvider app or PKCS12 files stored in the user's iCloud account. 
 
 Document provider extensions were introduced in iOS 8 and are described [here](https://developer.apple.com/library/ios/documentation/General/Conceptual/ExtensibilityPG/FileProvider.html). As additional background, a sample document provider was presented during the WWDC 2014 conference. Source code is available [here](https://github.com/master-nevi/WWDC-2014/tree/master/NewBox%20An%20Introduction%20to%20iCloud%20Document%20enhancements%20in%20iOS%208.0).
@@ -13,18 +11,24 @@ The list of keys displayed by a provider can be filtered using a uniform type id
 * com.rsa.pkcs-12
 * purebred.select.all
 * purebred.select.all_user
+* purebred.select.all-user
 * purebred.select.device
 * purebred.select.signature
 * purebred.select.encryption
 * purebred.select.authentication
 * purebred.select.no_filter
+* purebred.select.no-filter
 * purebred.zip.all
 * purebred.zip.all_user
+* purebred.zip.all-user
 * purebred.zip.device
 * purebred.zip.signature
 * purebred.zip.encryption
 * purebred.zip.authentication
 * purebred.zip.no_filter
+* purebred.zip.no-filter
+
+NOTE* UTI values with "-" have been added to support custom app distribution as "_" are not allowed.
 
 By default, the Purebred Registration app serves up the most recent keys for the indicated types. The no_filter option can be used to cause all available keys for the indicated types to be displayed. 
 

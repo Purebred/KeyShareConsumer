@@ -42,14 +42,40 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
     CGRect frameRect = [self.tableView frame];
-    CGSize constraint = CGSizeMake(frameRect.size.width - (CELL_CONTENT_MARGIN * 2) - 44, 20000.0f);
-    
-    NSString *detail = [keyChain getAttrValueAtSection:_itemIndex attrIndex:indexPath.row];
 
-    CGSize detailSize = [detail sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE] constrainedToSize:constraint lineBreakMode:NSLineBreakByCharWrapping];
-    
+    NSString *detail = [keyChain getAttrValueAtSection:_itemIndex attrIndex:indexPath.row];
     NSString *label = NSLocalizedString(@"Miscellaneous properties", @"Row label in key details view");
+
+    /*
+    CGSize constraint = CGSizeMake(frameRect.size.width - (CELL_CONTENT_MARGIN * 2) - 44, 20000.0f);
+    CGSize detailSize = [detail sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE] constrainedToSize:constraint lineBreakMode:NSLineBreakByCharWrapping];
     CGSize labelSize = [label sizeWithFont:[UIFont systemFontOfSize:FONT_SIZE] constrainedToSize:constraint lineBreakMode:NSLineBreakByCharWrapping];
+     */
+    
+    NSAttributedString *attributedTextDetail =
+        [[NSAttributedString alloc]
+            initWithString:detail
+            attributes:@
+            {
+                NSFontAttributeName: [UIFont systemFontOfSize:FONT_SIZE]
+            }];
+    CGRect rectDetail = [attributedTextDetail boundingRectWithSize:(CGSize){frameRect.size.width, CGFLOAT_MAX}
+                                               options:NSStringDrawingUsesLineFragmentOrigin
+                                               context:nil];
+    CGSize detailSize = rectDetail.size;
+
+    NSAttributedString *attributedTextLabel =
+        [[NSAttributedString alloc]
+            initWithString:label
+            attributes:@
+            {
+                NSFontAttributeName: [UIFont systemFontOfSize:FONT_SIZE]
+            }];
+    CGRect rectLabel = [attributedTextLabel boundingRectWithSize:(CGSize){frameRect.size.width, CGFLOAT_MAX}
+                                               options:NSStringDrawingUsesLineFragmentOrigin
+                                               context:nil];
+    CGSize labelSize = rectLabel.size;
+
     
     CGFloat height = MAX(detailSize.height + labelSize.height, 44.0f);
     

@@ -21,8 +21,8 @@
 }
 
 //Callbacks used by KeyDetailViewController for iTunes file sharing
-- (void)import:(int)index;
-- (void)dismissWithoutImporting:(int)index;
+- (void)import:(long)index;
+- (void)dismissWithoutImporting:(long)index;
 
 //Button click handlers
 - (IBAction)openImportDocumentPicker:(id)sender;

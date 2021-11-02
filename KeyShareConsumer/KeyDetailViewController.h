@@ -15,5 +15,5 @@
 @property (nonatomic, retain) IBOutlet UIButton *cancelButton;
 @property (nonatomic, retain) KeyChainDataSource *keyChain;
 @property (nonatomic, retain) ViewController *dpvc;
-@property (nonatomic, assign) int itemIndex;
+@property (nonatomic, assign) long itemIndex;
 @end
