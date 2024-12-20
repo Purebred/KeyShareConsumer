@@ -256,7 +256,7 @@
 				TargetAttributes = {
 					55FE830C1B6BB72B0072DCCD = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 2FBELHR72N;
+						DevelopmentTeam = M355KP63QV;
 						SystemCapabilities = {
 							com.apple.iCloud = {
 								enabled = 1;
@@ -265,7 +265,7 @@
 					};
 					55FE83251B6BB72B0072DCCD = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 2FBELHR72N;
+						DevelopmentTeam = M355KP63QV;
 						TestTargetID = 55FE830C1B6BB72B0072DCCD;
 					};
 				};
@@ -275,6 +275,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -456,11 +457,11 @@
 				CODE_SIGN_ENTITLEMENTS = KeyShareConsumer/KeyShareConsumer.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 2FBELHR72N;
+				DEVELOPMENT_TEAM = M355KP63QV;
 				INFOPLIST_FILE = KeyShareConsumer/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = red.hound.enterprise.KeyShareConsumer;
+				PRODUCT_BUNDLE_IDENTIFIER = rhs.KeyShareConsumer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "arm64 armv7";
@@ -474,11 +475,11 @@
 				CODE_SIGN_ENTITLEMENTS = KeyShareConsumer/KeyShareConsumer.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 2FBELHR72N;
+				DEVELOPMENT_TEAM = M355KP63QV;
 				INFOPLIST_FILE = KeyShareConsumer/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = red.hound.enterprise.KeyShareConsumer;
+				PRODUCT_BUNDLE_IDENTIFIER = rhs.KeyShareConsumer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "arm64 armv7";
@@ -489,7 +490,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 2FBELHR72N;
+				DEVELOPMENT_TEAM = M355KP63QV;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -512,7 +513,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 2FBELHR72N;
+				DEVELOPMENT_TEAM = M355KP63QV;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
