@@ -52,8 +52,8 @@ CFTypeRef g_identityAttrs[] = {
     kSecAttrCertificateType,
     kSecAttrCertificateEncoding,
     kSecAttrLabel,
-    kSecAttrSubject,
-    kSecAttrIssuer,
+//    kSecAttrSubject,
+//    kSecAttrIssuer,
     kSecAttrSerialNumber,
     kSecAttrSubjectKeyID,
     kSecAttrPublicKeyHash,
@@ -824,7 +824,7 @@ CFTypeRef g_miscRelatedAttrs[] = {
                 attrs = g_keyAttrs;
                 break;
             default:
-                return 0;
+                return @"Unrecognized mode";
         }
         
         for(int ii = 0, jj = 0; attrs[ii]; ++ii)

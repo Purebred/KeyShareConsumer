@@ -6,10 +6,17 @@
 #import <UIKit/UIKit.h>
 #import "KeyDetailViewController.h"
 #import <CommonCrypto/CommonDigest.h>
+#import "UniformTypeIdentifiers/UTType.h"
 
 #import "ZipFile.h"
 #import "FileInZipInfo.h"
 #import "ZipReadStream.h"
+
+@protocol KeySharingPassword
+
+-(void)fetchPassword:(void (^_Nullable)(NSString* _Nullable password, NSError* _Nullable error))completionHandler;
+
+@end
 
 @interface ViewController ()<UIDocumentPickerDelegate>
 @end
@@ -57,53 +64,66 @@
     NSMutableArray* utis = [[NSMutableArray alloc]init];
     
     if([standardDefaults boolForKey:@"toggle_com_rsa_pkcs12"])
-        [utis addObject:@"com.rsa.pkcs-12"];
-    if([standardDefaults boolForKey:@"toggle_purebred_select_all"])
-        [utis addObject:@"purebred.select.all"];
-    if([standardDefaults boolForKey:@"toggle_purebred_select_all_user"])
-        [utis addObject:@"purebred.select.all_user"];
-    if([standardDefaults boolForKey:@"toggle_purebred_select_all-user"])
-        [utis addObject:@"purebred.select.all-user"];
-    if([standardDefaults boolForKey:@"toggle_purebred_select_signature"])
-        [utis addObject:@"purebred.select.signature"];
-    if([standardDefaults boolForKey:@"toggle_purebred_select_encryption"])
-        [utis addObject:@"purebred.select.encryption"];
-    if([standardDefaults boolForKey:@"toggle_purebred_select_authentication"])
-        [utis addObject:@"purebred.select.authentication"];
-    if([standardDefaults boolForKey:@"toggle_purebred_select_device"])
-        [utis addObject:@"purebred.select.device"];
-    if([standardDefaults boolForKey:@"toggle_purebred_select_no_filter"])
-        [utis addObject:@"purebred.select.no_filter"];
-    if([standardDefaults boolForKey:@"toggle_purebred_select_no-filter"])
-        [utis addObject:@"purebred.select.no-filter"];
-    if([standardDefaults boolForKey:@"toggle_purebred_select_no-filter"])
-        [utis addObject:@"purebred.select.no-filter"];
-    if([standardDefaults boolForKey:@"toggle_purebred_select_no-filter"])
-        [utis addObject:@"purebred.select.no-filter"];
+        [utis addObject:@"purebred2025.rsa.pkcs-12"];
+    if([standardDefaults boolForKey:@"toggle_purebred_select_all"]) {
+        [utis addObject:@"purebred2025.select.all"];
+        [utis addObject:@"purebred2025.select.all-p12"];
+    }
+    if([standardDefaults boolForKey:@"toggle_purebred_select_all-user"]) {
+        [utis addObject:@"purebred2025.select.all-user"];
+        [utis addObject:@"purebred2025.select.all-user-p12"];
+    }
+    if([standardDefaults boolForKey:@"toggle_purebred_select_signature"]) {
+        [utis addObject:@"purebred2025.select.signature"];
+        [utis addObject:@"purebred2025.select.signature-p12"];
+    }
+    if([standardDefaults boolForKey:@"toggle_purebred_select_encryption"]) {
+        [utis addObject:@"purebred2025.select.encryption"];
+        [utis addObject:@"purebred2025.select.encryption-p12"];
+    }
+    if([standardDefaults boolForKey:@"toggle_purebred_select_authentication"]) {
+        [utis addObject:@"purebred2025.select.authentication"];
+        [utis addObject:@"purebred2025.select.authentication-p12"];
+    }
+    if([standardDefaults boolForKey:@"toggle_purebred_select_device"]) {
+        [utis addObject:@"purebred2025.select.device"];
+        [utis addObject:@"purebred2025.select.device-p12"];
+    }
+    if([standardDefaults boolForKey:@"toggle_purebred_select_no-filter"]) {
+        [utis addObject:@"purebred2025.select.no-filter"];
+        [utis addObject:@"purebred2025.select.no-filter-p12"];
+    }
     if([standardDefaults boolForKey:@"toggle_purebred_zip_all"])
-        [utis addObject:@"purebred.zip.all"];
-    if([standardDefaults boolForKey:@"toggle_purebred_zip_all_user"])
-        [utis addObject:@"purebred.zip.all_user"];
+        [utis addObject:@"purebred2025.zip.all"];
     if([standardDefaults boolForKey:@"toggle_purebred_zip_all-user"])
-        [utis addObject:@"purebred.zip.all-user"];
+        [utis addObject:@"purebred2025.zip.all-user"];
     if([standardDefaults boolForKey:@"toggle_purebred_zip_signature"])
-        [utis addObject:@"purebred.zip.signature"];
+        [utis addObject:@"purebred2025.zip.signature"];
     if([standardDefaults boolForKey:@"toggle_purebred_zip_encryption"])
-        [utis addObject:@"purebred.zip.encryption"];
+        [utis addObject:@"purebred2025.zip.encryption"];
     if([standardDefaults boolForKey:@"toggle_purebred_zip_authentication"])
-        [utis addObject:@"purebred.zip.authentication"];
+        [utis addObject:@"purebred2025.zip.authentication"];
     if([standardDefaults boolForKey:@"toggle_purebred_zip_device"])
-        [utis addObject:@"purebred.zip.device"];
-    if([standardDefaults boolForKey:@"toggle_purebred_zip_no_filter"])
-        [utis addObject:@"purebred.zip.no_filter"];
+        [utis addObject:@"purebred2025.zip.device"];
     if([standardDefaults boolForKey:@"toggle_purebred_zip_no-filter"])
-        [utis addObject:@"purebred.zip.no-filter"];
+        [utis addObject:@"purebred2025.zip.no-filter"];
 
     if(0 == [utis count])
-        [utis addObject:@"com.rsa.pkcs-12"];
+        [utis addObject:@"purebred2025.rsa.pkcs-12"];
     
+    NSMutableArray* uniformTypeIdentifiers = [[NSMutableArray alloc]init];
+    for (NSString* curUti in utis)
+    {
+        UTType* uti = [UTType typeWithIdentifier:curUti];
+        if (uti != nil) {
+            [uniformTypeIdentifiers addObject:uti];
+        } else {
+            NSLog(@"Unable to convert to UTType %@", curUti);
+        }
+    }
     //Display the UIDocumentPickerViewController to enable the user to select a key to import. Purebred Registration only works with UIDocumentPickerModeOpen mode.
-    UIDocumentPickerViewController *documentPicker = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:utis inMode:UIDocumentPickerModeOpen];
+    // UIDocumentPickerViewController *documentPicker = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:utis inMode:UIDocumentPickerModeOpen];
+    UIDocumentPickerViewController *documentPicker = [[UIDocumentPickerViewController alloc] initForOpeningContentTypes: uniformTypeIdentifiers];
     documentPicker.delegate = self;
     documentPicker.modalPresentationStyle = UIModalPresentationFormSheet;
     [self presentViewController:documentPicker animated:YES completion:nil];
@@ -126,58 +146,88 @@
 
 - (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentsAtURLs:(NSArray<NSURL *>*)urls {
     NSURL* url = urls[0];
-    if(controller.documentPickerMode == UIDocumentPickerModeOpen)
-    {
-        BOOL startAccessingWorked = [url startAccessingSecurityScopedResource];
-        NSURL *ubiquityURL = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
-        NSLog(@"ubiquityURL %@",ubiquityURL);
-        NSLog(@"start %d",startAccessingWorked);
-        
-        NSFileCoordinator *fileCoordinator = [[NSFileCoordinator alloc] init];
-        NSError *error;
-        [fileCoordinator coordinateReadingItemAtURL:url options:0 error:&error byAccessor:^(NSURL *newURL) {
-            NSData *data = [NSData dataWithContentsOfURL:newURL];
-            
-            NSLog(@"error %@",error);
-            NSLog(@"data %@",data);
-            if(nil == data)
-                return;
+    BOOL startAccessingWorked = [url startAccessingSecurityScopedResource];
 
-            // Read the password from the pasteboard
-            UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-            NSString* pw = [pasteboard string];
+    [[NSFileManager defaultManager] getFileProviderServicesForItemAtURL:url completionHandler:^(NSDictionary<NSFileProviderServiceName,NSFileProviderService *> * _Nullable services, NSError * _Nullable error) {
+        if (nil != services) {
             
-            if(nil != pw && 0 != [pw length])
-            {
-                passwordFromUser = pw;
+            NSArray* keys = [services allKeys];
+
+            for(NSString* key in keys) {
+                NSFileProviderService* obj = [services objectForKey:key];
+                
+                [obj getFileProviderConnectionWithCompletionHandler:^(NSXPCConnection * _Nullable connection, NSError * _Nullable error) {
+                    if(nil != error) {
+                        NSLog(@"getFileProviderConnectionWithCompletionHandler received an error: %@", error);
+                        return;
+                    }
+                    if (nil == connection) {
+                        NSLog(@"getFileProviderConnectionWithCompletionHandler did not receive a connection object");
+                        return;
+                    }
+
+                    connection.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol: @protocol(KeySharingPassword)];
+                    [connection resume];
+                    //[connection remoteObjectProxy];
+                    
+                    id<KeySharingPassword> helperProxy = [connection remoteObjectProxyWithErrorHandler:^(NSError* error) {
+                            NSLog(@"remoteObjectProxyWithErrorHandler: Connection error: %@", error);
+                        }];
+
+                    if (nil == helperProxy) {
+                        NSLog(@"remoteObjectProxyWithErrorHandler did not return a proxy");
+                        return;
+                    }
+                    
+                    [helperProxy fetchPassword:^(NSString * _Nullable password, NSError * _Nullable error) {
+                        NSURL *ubiquityURL = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil];
+                        NSLog(@"ubiquityURL %@",ubiquityURL);
+                        NSLog(@"start %d",startAccessingWorked);
+                        
+                        NSFileCoordinator *fileCoordinator = [[NSFileCoordinator alloc] init];
+                        [fileCoordinator coordinateReadingItemAtURL:url options:0 error:&error byAccessor:^(NSURL *newURL) {
+                            NSData *data = [NSData dataWithContentsOfURL:newURL];
+                            
+                            NSLog(@"error %@",error);
+                            NSLog(@"data %@",data);
+                            if(nil == data)
+                                return;
+                            
+                            if(nil != password && 0 != [password length])
+                            {
+                                passwordFromUser = password;
+                            }
+                            
+                            pkcs12Data = data;
+                        }];
+                        if(nil == passwordFromUser || 0 == [passwordFromUser length])
+                        {
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Enter Password" message:@"Please enter the password for the selected PKCS #12 file" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: @"OK", nil];
+                                alert.alertViewStyle = UIAlertViewStyleSecureTextInput;
+                                [alert show];
+                            });
+                        }
+                        else{
+                            // MOD: added sanity check to avoid crasher on file read miss
+                            if ([pkcs12Data length] > 0) {
+                                dispatch_async(dispatch_get_main_queue(), ^{
+                                    [self importP12:pkcs12Data password:passwordFromUser];
+                                });
+                            }
+                            else {
+                                NSLog(@"Read zero bytes from %@", url);
+                            }
+                        }
+                        [url stopAccessingSecurityScopedResource];
+                    }];
+                }];
             }
-
-            pkcs12Data = data;
-       }];
-        [url stopAccessingSecurityScopedResource];
-        
-        if(nil == passwordFromUser || 0 == [passwordFromUser length])
-        {
-            UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Enter Password" message:@"Please enter the password for the selected PKCS #12 file" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: @"OK", nil];
-            alert.alertViewStyle = UIAlertViewStyleSecureTextInput;
-            [alert show];
         }
-        else{
-            /*
-            NSString* p12File = @"tmp.p12";
-            
-            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-            NSString *documentsDirectory = [paths objectAtIndex:0];
-            NSString *p12Path = [documentsDirectory stringByAppendingPathComponent:p12File];
-            
-            NSLog(@"Password: %@", passwordFromUser);
-            //Write the private key and certificate to a pair of files
-            [pkcs12Data writeToFile:p12Path atomically:YES];
-            */
-            
-            [self importP12:pkcs12Data password:passwordFromUser];
+        else {
+            NSLog(@"Services was nil. Error: %@", error);
         }
-    }
+    }] ;
 }
 
 //------------------------------------------------------------------------------

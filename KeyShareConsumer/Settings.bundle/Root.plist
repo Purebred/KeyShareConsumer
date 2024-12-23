@@ -16,7 +16,7 @@
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
-			<string>All keys (com.rsa.pkcs-12)</string>
+			<string>All keys (purebred2025.rsa.pkcs-12)</string>
 			<key>Key</key>
 			<string>toggle_com_rsa_pkcs12</string>
 			<key>DefaultValue</key>
@@ -26,7 +26,7 @@
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
-			<string>All keys (purebred.select.all)</string>
+			<string>All keys (purebred2025.select.all)</string>
 			<key>Key</key>
 			<string>toggle_purebred_select_all</string>
 			<key>DefaultValue</key>
@@ -36,7 +36,7 @@
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
-			<string>All user keys (purebred.select.all.user)</string>
+			<string>All user keys (purebred2025.select.all.user)</string>
 			<key>Key</key>
 			<string>toggle_purebred_select_all_user</string>
 			<key>DefaultValue</key>
@@ -46,7 +46,7 @@
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
-			<string>All user keys (purebred.select.all-user)</string>
+			<string>All user keys (purebred2025.select.all-user)</string>
 			<key>Key</key>
 			<string>toggle_purebred_select_all-user</string>
 			<key>DefaultValue</key>
@@ -56,7 +56,7 @@
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
-			<string>Signature keys (purebred.select.signature)</string>
+			<string>Signature keys (purebred2025.select.signature)</string>
 			<key>Key</key>
 			<string>toggle_purebred_select_signature</string>
 			<key>DefaultValue</key>
@@ -66,7 +66,7 @@
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
-			<string>All encryption keys (purebred.select.encryption)</string>
+			<string>All encryption keys (purebred2025.select.encryption)</string>
 			<key>Key</key>
 			<string>toggle_purebred_select_encryption</string>
 			<key>DefaultValue</key>
@@ -76,7 +76,7 @@
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
-			<string>All authentication keys (purebred.select.authentication)</string>
+			<string>All authentication keys (purebred2025.select.authentication)</string>
 			<key>Key</key>
 			<string>toggle_purebred_select_authentication</string>
 			<key>DefaultValue</key>
@@ -86,27 +86,27 @@
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
-			<string>All device keys (purebred.select.device)</string>
+			<string>All device keys (purebred2025.select.device)</string>
 			<key>Key</key>
 			<string>toggle_purebred_select_device</string>
 			<key>DefaultValue</key>
 			<true/>
 		</dict>
-        <dict>
-            <key>Type</key>
-            <string>PSToggleSwitchSpecifier</string>
-            <key>Title</key>
-            <string>All device keys (purebred.zip.all)</string>
-            <key>Key</key>
-            <string>toggle_purebred_zip_all</string>
-            <key>DefaultValue</key>
-            <false/>
-        </dict>
 		<dict>
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
-			<string>All user keys (purebred.zip.all.user)</string>
+			<string>All device keys (purebred2025.zip.all)</string>
+			<key>Key</key>
+			<string>toggle_purebred_zip_all</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>All user keys (purebred2025.zip.all.user)</string>
 			<key>Key</key>
 			<string>toggle_purebred_zip_all_user</string>
 			<key>DefaultValue</key>
@@ -116,7 +116,7 @@
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
-			<string>All user keys (purebred.zip.all-user)</string>
+			<string>All user keys (purebred2025.zip.all-user)</string>
 			<key>Key</key>
 			<string>toggle_purebred_zip_all-user</string>
 			<key>DefaultValue</key>
@@ -126,7 +126,7 @@
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
-			<string>Signature keys (purebred.zip.signature)</string>
+			<string>Signature keys (purebred2025.zip.signature)</string>
 			<key>Key</key>
 			<string>toggle_purebred_zip_signature</string>
 			<key>DefaultValue</key>
@@ -136,7 +136,7 @@
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
-			<string>All encryption keys (purebred.zip.encryption)</string>
+			<string>All encryption keys (purebred2025.zip.encryption)</string>
 			<key>Key</key>
 			<string>toggle_purebred_zip_encryption</string>
 			<key>DefaultValue</key>
@@ -146,7 +146,7 @@
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
-			<string>All authentication keys (purebred.zip.authentication)</string>
+			<string>All authentication keys (purebred2025.zip.authentication)</string>
 			<key>Key</key>
 			<string>toggle_purebred_zip_authentication</string>
 			<key>DefaultValue</key>
@@ -156,52 +156,52 @@
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
-			<string>All device keys (purebred.zip.device)</string>
+			<string>All device keys (purebred2025.zip.device)</string>
 			<key>Key</key>
 			<string>toggle_purebred_zip_device</string>
 			<key>DefaultValue</key>
 			<false/>
 		</dict>
-        <dict>
-            <key>Type</key>
-            <string>PSToggleSwitchSpecifier</string>
-            <key>Title</key>
-            <string>Do not filter on notBefore for zip files (purebred.zip.no_filter)</string>
-            <key>Key</key>
-            <string>toggle_purebred_zip_no_filter</string>
-            <key>DefaultValue</key>
-            <false/>
-        </dict>
-        <dict>
-            <key>Type</key>
-            <string>PSToggleSwitchSpecifier</string>
-            <key>Title</key>
-            <string>Do not filter on notBefore (purebred.select.no_filter)</string>
-            <key>Key</key>
-            <string>toggle_purebred_select_no_filter</string>
-            <key>DefaultValue</key>
-            <false/>
-        </dict>
-        <dict>
-            <key>Type</key>
-            <string>PSToggleSwitchSpecifier</string>
-            <key>Title</key>
-            <string>Do not filter on notBefore for zip files (purebred.zip.no-filter)</string>
-            <key>Key</key>
-            <string>toggle_purebred_zip_no-filter</string>
-            <key>DefaultValue</key>
-            <false/>
-        </dict>
-        <dict>
-            <key>Type</key>
-            <string>PSToggleSwitchSpecifier</string>
-            <key>Title</key>
-            <string>Do not filter on notBefore (purebred.select.no-filter)</string>
-            <key>Key</key>
-            <string>toggle_purebred_select_no-filter</string>
-            <key>DefaultValue</key>
-            <false/>
-        </dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Do not filter on notBefore for zip files (purebred2025.zip.no_filter)</string>
+			<key>Key</key>
+			<string>toggle_purebred_zip_no_filter</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Do not filter on notBefore (purebred2025.select.no_filter)</string>
+			<key>Key</key>
+			<string>toggle_purebred_select_no_filter</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Do not filter on notBefore for zip files (purebred2025.zip.no-filter)</string>
+			<key>Key</key>
+			<string>toggle_purebred_zip_no-filter</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Do not filter on notBefore (purebred2025.select.no-filter)</string>
+			<key>Key</key>
+			<string>toggle_purebred_select_no-filter</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
 	</array>
 </dict>
 </plist>
